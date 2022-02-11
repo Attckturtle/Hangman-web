@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Days+One&display=swap');
+
+* {
+  font-family: 'Days One', sans-serif;
+}
+
+body {
+    background-color: rgb(83, 83, 83);
+    /* background-color: white; */
+    margin: 0;
+    text-align: center;
+  }
+
+  #hangmanHead {
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 50%;
+    border-color: rgb(243, 0, 0);
+    border-width: 30px;
+    left: 200px;
+    top: 100px;
+  }
+
+  #hangmanBody {
+        position:absolute;
+        height: 100px;
+        width: 50px;
+        background-color: rgb(255, 255, 255);
+        left: 220px;
+        top: 170px;
+  }
+
+  #hangmanLeftHand {
+    position: absolute;
+    height: 10px;
+    width: 50px;
+    background-color: rgb(255, 255, 255);
+    transform: rotate(45deg);
+    top: 200px;
+    left: 250px;
+  }
+
+  #hangmanRightHand {
+    position: absolute;
+    height: 10px;
+    width: 50px;
+    background-color: rgb(255, 250, 250);
+    transform: rotate(135deg);
+    top: 200px;
+    left: 190px;
+  }
+
+#grid-container {
+  position: absolute;
+  display:grid;
+  margin:auto;
+  grid-template-columns: repeat(13 , 1fr);
+  bottom: 0;
+  /* right: 6%; */
+}
+
+.center-element {
+  display: flex;
+  justify-content: center;
+}
+
+.grid-item {
+  background-color: rgb(49, 49, 49);
+  border-radius: 5px;
+  margin: 10px;
+  font-size: 25px;
+  padding: 7px 19px 7px 18px;
+  color: rgb(255, 208, 0);
+  display: inline;
+  text-align: center;
+}
+
+.highlighted {
+  background-color: crimson;
+}
+
+.highlighted {
+  color: yellow;
+}
+
+

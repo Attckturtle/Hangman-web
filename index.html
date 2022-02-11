@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+<head>
+    <title>Hangman Online</title>
+</head>
+<body>
+    <input id="nextWordInput" type="text">
+    <button onclick="setNextWordToString()">Set word</button>
+    <input id="nextLetterInput" type="text">
+    <button onclick="nextLetterGuess()">Next guess</button>
+    <div id="hangmanHead"></div>
+    <div id="hangmanBody"></div>
+    <div id="hangmanLeftHand"></div>
+    <div id="hangmanRightHand"></div>
+    <p id="blankSpaces">-</p>
+    <div class="center-element">
+        <div id="grid-container">
+    </div>
+        
+    </div>
+</body>
+<script src="script.js"></script>
+</html>
