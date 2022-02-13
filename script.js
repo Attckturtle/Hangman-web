@@ -12,6 +12,12 @@ let checkingCorrectAnswer = [];
 let nextLetterV2;
 let checkingCorrectAnswerV2 = [];
 let placeOfGuessedNumber;
+let blankSpacesArray;
+let placeOfGuessedNumberV2;
+let placeOfGuessedNumberV3;
+let FirstBlankSpace
+let firstLetterOfArray;
+let nextWordArrayLetter;
 
 //essentials
 // step 1: go to a corner in a room (any room)
@@ -31,7 +37,11 @@ function setNextWordToString() {
     alert("New game started");
     nextWordArray = nextWord.split("");
     console.log(nextWordArray);
+    console.log(nextWordArray);
     document.getElementById("nextWordInput").style.display = "none";
+    document.getElementById("nextWordInputButton").style.display = "none";
+    checkingCorrectAnswer.push(nextLetter);
+    console.log(checkingCorrectAnswer);
     setTheBlankSpaces();
 }
 
@@ -45,22 +55,26 @@ function setNextWordToString() {
         if (nextWord[i] === " ") {
             blankSpaces += " space ";
         } else {
-            blankSpaces += "_ ";
+            blankSpaces += "_";
 
         }
     }
-    document.getElementById("blankSpaces").innerHTML = blankSpaces;
+    blankSpacesArray = blankSpaces.split("");
+    nextWordArrayLetter = nextWordArray;
+    firstLetterOfArray = nextWordArrayLetter.splice(0,1);
+    nextWordArray.splice(0, 0, firstLetterOfArray);
+    blankSpacesArray.splice(0, 1);
+    blankSpacesArray.splice(0, 0, firstLetterOfArray);
+    console.log("log blank spaces");
+    console.log(blankSpacesArray);
+    document.getElementById("blankSpaces").innerHTML = blankSpacesArray;
 }
  
 function nextLetterGuess() {
     nextLetter = document.getElementById("nextLetterInput").value;
-    nextLetterV2 = nextLetter.split(" ");
-    checkingCorrectAnswer.push(nextLetterV2);
-    console.log(checkingCorrectAnswer);
+    checkingCorrectAnswer.splice(0, 1);
+    console.log(checkingCorrectAnswer + "checking correct answer");
     showAlreadyInputedLetters();
-    checkIfCorrectGuess();
-    deleteDuplicates();
-    clearInputArea();
 }
 
 function showAlreadyInputedLetters() {
@@ -68,40 +82,39 @@ function showAlreadyInputedLetters() {
         const highlightedLetter = document.getElementById(nextLetter)
         highlightedLetter.classList.add("highlighted")
     }
-    checkIfCorrectLetterGuess();
-}
-
-function deleteDuplicates() {
-    checkingCorrectAnswerV2 = checkingCorrectAnswer.filter((c, index) => {
-    return checkingCorrectAnswer.indexOf(c) === index;
-});
-console.log(checkingCorrectAnswerV2);
-}
-
-function checkIfCorrectGuess() {
-  if (checkingCorrectAnswerV2 = nextWordArray) {
-      
-  }
-  printTheCorrectLetter();
+    clearInputArea();
 }
 
 function clearInputArea() {
-    //console.log("InnerText: " + "|"+document.getElementById("nextLetterInput").innerText+"|")
-    document.getElementById("nextLetterInput").innerHTML = "";
+    console.log("clearing letter input");
+    document.getElementById("nextLetterInput").value = "";
+    checkIfCorrectGuess();
 }
 
-function checkIfCorrectLetterGuess() {
-    console.log(nextLetter);
-    if (nextLetter = nextWordArray) {
-        console.log("Correct Letter Guess");
-        placeOfGuessedNumber = nextWordArray.indexOf(nextLetter);
-        console.log(placeOfGuessedNumber);
-    } else {
-        console.log("incorrect");
+function checkIfCorrectGuess() {
+    placeOfGuessedWord = nextWordArray.indexOf(nextLetter);
+    console.log(nextWordArray.indexOf(nextLetter));
+    //todo: fix if statement not running correctly
+    if (placeOfGuessedNumber >= 0) {
+        console.log("correct");
+        console.log(placeOfGuessedWord);
+        console.log(nextWordArray);
+        console.log(blankSpacesArray);
+        changeTheBlankSpaces();
+        checkIfCorrectWordGuess();
     }
 }
 
-function printTheCorrectLetter() {
-    placeOfGuessedNumber
+function changeTheBlankSpaces() {
+    //todo: fix blank spaces not changing
+    blankSpacesArray.splice(placeOfGuessedWord, 1, nextLetter);
+    console.log(blankSpacesArray);
+    document.getElementById("blankSpaces").innerHTML = blankSpacesArray;
 }
 
+function checkIfCorrectWordGuess() {
+
+    if (nextWordArray === checkingCorrectAnswer) {
+        alert("You win");
+    }
+}
