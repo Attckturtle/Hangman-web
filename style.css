@@ -11,6 +11,10 @@ body {
     text-align: center;
   }
 
+  .incorrectGuess {
+    display: none;
+  }
+
  #hangmanOnlineLogo {
    position: absolute;
    opacity: 0.2;
@@ -33,7 +37,7 @@ body {
     border-radius: 50%;
     border-color: rgb(243, 0, 0);
     border-width: 30px;
-    left: 200px;
+    left: 210px;
     top: 100px;
   }
 
@@ -115,10 +119,10 @@ body {
   #hangingRope {
     position: absolute;
     height: 10px;
-    width: 60px;
+    width: 70px;
     background-color: rgb(255, 250, 250);
     transform: rotate(90deg);
-    top: 80px;
+    top: 81px;
     left: 195px;
   }
 

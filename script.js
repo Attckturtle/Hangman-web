@@ -11,7 +11,7 @@ let correctAnswer = [];
 let checkingCorrectAnswer = [];
 let nextLetterV2;
 let checkingCorrectAnswerV2 = [];
-let placeOfGuessedNumber;
+let placeOfGuessedWord;
 let blankSpacesArray;
 let placeOfGuessedNumberV2;
 let placeOfGuessedNumberV3;
@@ -37,11 +37,8 @@ function setNextWordToString() {
     alert("New game started");
     nextWordArray = nextWord.split("");
     console.log(nextWordArray);
-    console.log(nextWordArray);
     document.getElementById("nextWordInput").style.display = "none";
     document.getElementById("nextWordInputButton").style.display = "none";
-    checkingCorrectAnswer.push(nextLetter);
-    console.log(checkingCorrectAnswer);
     setTheBlankSpaces();
 }
 
@@ -72,8 +69,9 @@ function setNextWordToString() {
  
 function nextLetterGuess() {
     nextLetter = document.getElementById("nextLetterInput").value;
-    checkingCorrectAnswer.splice(0, 1);
     console.log(checkingCorrectAnswer + "checking correct answer");
+    checkingCorrectAnswer.splice(0, 0, nextLetter)
+    console.log(checkingCorrectAnswer);
     showAlreadyInputedLetters();
 }
 
@@ -82,6 +80,7 @@ function showAlreadyInputedLetters() {
         const highlightedLetter = document.getElementById(nextLetter)
         highlightedLetter.classList.add("highlighted")
     }
+    checkingCorrectAnswer.splice()
     clearInputArea();
 }
 
@@ -93,9 +92,12 @@ function clearInputArea() {
 
 function checkIfCorrectGuess() {
     placeOfGuessedWord = nextWordArray.indexOf(nextLetter);
+    placeOfGuessedNumberV2 = parseInt(placeOfGuessedWord)
     console.log(nextWordArray.indexOf(nextLetter));
     //todo: fix if statement not running correctly
-    if (placeOfGuessedNumber >= 0) {
+    console.log("if statement log");
+    console.log(placeOfGuessedWord);
+    if (placeOfGuessedWord >= 0) {
         console.log("correct");
         console.log(placeOfGuessedWord);
         console.log(nextWordArray);
@@ -113,8 +115,5 @@ function changeTheBlankSpaces() {
 }
 
 function checkIfCorrectWordGuess() {
-
-    if (nextWordArray === checkingCorrectAnswer) {
-        alert("You win");
-    }
+    console.log(checkingCorrectAnswer);
 }
