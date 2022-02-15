@@ -124,8 +124,10 @@ function setTheBlankSpaces() {
 function nextLetterGuess() {
   nextLetter = document.getElementById("nextLetterInput").value;
   console.log(checkingCorrectAnswer + "checking correct answer");
+  //if (placeOfGuessedWord >= 0) {
   checkingCorrectAnswer.splice(0, 0, nextLetter);
-  console.log(checkingCorrectAnswer);
+  console.log("checking correct answer" + checkingCorrectAnswer);
+  //}
   showAlreadyInputedLetters();
 }
 
@@ -194,6 +196,7 @@ function showHangmanBodyParts() {
       alert("You lose");
       setTimeout(() => {
         window.location.reload();
+        alert("Input next");
       }, 2000);
       break;
   }
@@ -207,4 +210,17 @@ function changeTheBlankSpaces() {
 
 function checkIfCorrectWordGuess() {
   console.log(checkingCorrectAnswer);
+  console.log(nextWordArray);
+  //todo: fix issue with array equality measuring
+  if (
+    Array.isArray(checkingCorrectAnswer) &&
+    Array.isArray(nextWordArray) &&
+    checkingCorrectAnswer.length === nextWordArray.length &&
+    checkingCorrectAnswer.every((val, index) => val === nextWordArray[index])
+  ) {
+    setTimeout(() => {
+      window.location.reload();
+      alert("You Win");
+    }, 2000);
+  }
 }
