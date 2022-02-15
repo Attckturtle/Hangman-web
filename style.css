@@ -1,132 +1,132 @@
-@import url('https://fonts.googleapis.com/css2?family=Days+One&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Days+One&display=swap");
 
 * {
-  font-family: 'Days One', sans-serif;
+  font-family: "Days One", sans-serif;
 }
 
 body {
-    background-color: rgb(78, 77, 77);
-    /* background-color: white; */
-    margin: 0;
-    text-align: center;
-  }
+  background-color: rgb(78, 77, 77);
+  /* background-color: white; */
+  margin: 0;
+  text-align: center;
+}
 
-  .incorrectGuess {
-    display: none;
-  }
+.incorrectGuess {
+  display: none;
+}
 
- #hangmanOnlineLogo {
-   position: absolute;
-   opacity: 0.2;
-   left: 1220px;
-   top: -20px;
- }
+#hangmanOnlineLogo {
+  position: absolute;
+  opacity: 0.2;
+  left: 1220px;
+  top: -20px;
+}
 
- #creditor {
+#creditor {
   position: absolute;
   opacity: 0.2;
   left: 1420px;
   top: 20px;
- }
+}
 
-  #hangmanHead {
-    position: absolute;
-    height: 100px;
-    width: 100px;
-    background-color: rgb(255, 255, 255);
-    border-radius: 50%;
-    border-color: rgb(243, 0, 0);
-    border-width: 30px;
-    left: 210px;
-    top: 100px;
-  }
+#hangmanHead {
+  position: absolute;
+  height: 100px;
+  width: 100px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 50%;
+  border-color: rgb(243, 0, 0);
+  border-width: 30px;
+  left: 210px;
+  top: 100px;
+}
 
-  #hangmanBody {
-        position:absolute;
-        height: 100px;
-        width: 50px;
-        background-color: rgb(255, 255, 255);
-        left: 220px;
-        top: 170px;
-  }
+#hangmanBody {
+  position: absolute;
+  height: 100px;
+  width: 50px;
+  background-color: rgb(255, 255, 255);
+  left: 220px;
+  top: 170px;
+}
 
-  #hangmanLeftHand {
-    position: absolute;
-    height: 10px;
-    width: 50px;
-    background-color: rgb(255, 255, 255);
-    transform: rotate(45deg);
-    top: 200px;
-    left: 250px;
-  }
+#hangmanLeftHand {
+  position: absolute;
+  height: 10px;
+  width: 50px;
+  background-color: rgb(255, 255, 255);
+  transform: rotate(45deg);
+  top: 200px;
+  left: 250px;
+}
 
-  #hangmanRightHand {
-    position: absolute;
-    height: 10px;
-    width: 50px;
-    background-color: rgb(255, 250, 250);
-    transform: rotate(135deg);
-    top: 200px;
-    left: 190px;
-  }
-  #hangmanLeftLeg {
-    position: absolute;
-    height: 10px;
-    width: 50px;
-    background-color: rgb(255, 255, 255);
-    transform: rotate(75deg);
-    top: 270px;
-    left: 245px;
-  }
-  #hangmanRightLeg {
-    position: absolute;
-    height: 10px;
-    width: 50px;
-    background-color: rgb(255, 250, 250);
-    transform: rotate(105deg);
-    top: 270px;
-    left: 195px;
-  }
+#hangmanRightHand {
+  position: absolute;
+  height: 10px;
+  width: 50px;
+  background-color: rgb(255, 250, 250);
+  transform: rotate(135deg);
+  top: 200px;
+  left: 190px;
+}
+#hangmanLeftLeg {
+  position: absolute;
+  height: 10px;
+  width: 50px;
+  background-color: rgb(255, 255, 255);
+  transform: rotate(75deg);
+  top: 270px;
+  left: 245px;
+}
+#hangmanRightLeg {
+  position: absolute;
+  height: 10px;
+  width: 50px;
+  background-color: rgb(255, 250, 250);
+  transform: rotate(105deg);
+  top: 270px;
+  left: 195px;
+}
 
-  #ropeStandSupport {
-    position: absolute;
-    height: 10px;
-    width: 50px;
-    background-color: rgb(255, 250, 250);
-    top: 300px;
-    left: 100px;
-  }
+#ropeStandSupport {
+  position: absolute;
+  height: 10px;
+  width: 50px;
+  background-color: rgb(255, 250, 250);
+  top: 300px;
+  left: 100px;
+}
 
-  #ropeStand {
-    position: absolute;
-    height: 10px;
-    width: 250px;
-    background-color: rgb(255, 250, 250);
-    transform: rotate(90deg);
-    top: 170px;
-    left: 0px;
-  }
+#ropeStand {
+  position: absolute;
+  height: 10px;
+  width: 250px;
+  background-color: rgb(255, 250, 250);
+  transform: rotate(90deg);
+  top: 170px;
+  left: 0px;
+}
 
-  #ropeSupport {
-    position: absolute;
-    height: 10px;
-    width: 150px;
-    background-color: rgb(255, 250, 250);
-    top: 50px;
-    left: 105px;
-  }
+#ropeSupport {
+  position: absolute;
+  height: 10px;
+  width: 150px;
+  background-color: rgb(255, 250, 250);
+  top: 50px;
+  left: 105px;
+}
 
-  #hangingRope {
-    position: absolute;
-    height: 10px;
-    width: 70px;
-    background-color: rgb(255, 250, 250);
-    transform: rotate(90deg);
-    top: 81px;
-    left: 195px;
-  }
+#hangingRope {
+  position: absolute;
+  height: 10px;
+  width: 70px;
+  background-color: rgb(255, 250, 250);
+  transform: rotate(90deg);
+  top: 81px;
+  left: 195px;
+}
 
- #standLine {
+#standLine {
   position: absolute;
   height: 10px;
   width: 50px;
@@ -134,13 +134,13 @@ body {
   transform: rotate(135deg);
   top: 70px;
   left: 115px;
- }
+}
 
 #grid-container {
   position: absolute;
-  display:grid;
-  margin:auto;
-  grid-template-columns: repeat(13 , 1fr);
+  display: grid;
+  margin: auto;
+  grid-template-columns: repeat(13, 1fr);
   bottom: 0;
   /* right: 6%; */
 }
@@ -181,5 +181,3 @@ body {
 .highlighted {
   color: yellow;
 }
-
-

@@ -1,40 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <head>
     <title>Hangman Online</title>
-</head>
-<body>
-    <input id="nextWordInput" type="text">
-    <button id="nextWordInputButton" onclick="setNextWordToString()">Set word</button>
-    <input id="nextLetterInput" type="text">
-    <button id="nextLetterInputButton" onclick="nextLetterGuess()">Next guess</button>
+  </head>
+  <body>
+    <input id="nextWordInput" type="text" />
+    <button id="nextWordInputButton" onclick="setNextWordToString()">
+      Set word
+    </button>
+    <input id="nextLetterInput" type="text" />
+    <button id="nextLetterInputButton" onclick="nextLetterGuess()">
+      Next guess
+    </button>
 
     <h1 id="hangmanOnlineLogo">Hangman Online</h1>
     <p id="creditor">By Shing</p>
-    
-        <div id="ropeStand"></div>
-        <div id="ropeSupport"></div>
-        <div id="hangingRope"></div>
-        <div id="ropeStandSupport"></div>
-        <div id="standLine"></div>
 
-        <div class="incorrectGuess" id="hangmanHead"></div>
-        <div class="incorrectGuess" id="hangmanBody"></div>
-        <div class="incorrectGuess" id="hangmanLeftHand"></div>
-        <div class="incorrectGuess" id="hangmanRightHand"></div>
-        <div class="incorrectGuess" id="hangmanLeftLeg"></div>
-        <div class="incorrectGuess" id="hangmanRightLeg"></div>
-    
+    <div id="ropeStand"></div>
+    <div id="ropeSupport"></div>
+    <div id="hangingRope"></div>
+    <div id="ropeStandSupport"></div>
+    <div id="standLine"></div>
+
+    <div class="incorrectGuess" id="hangmanHead"></div>
+    <div class="incorrectGuess" id="hangmanBody"></div>
+    <div class="incorrectGuess" id="hangmanLeftHand"></div>
+    <div class="incorrectGuess" id="hangmanRightHand"></div>
+    <div class="incorrectGuess" id="hangmanLeftLeg"></div>
+    <div class="incorrectGuess" id="hangmanRightLeg"></div>
+
     <p id="blankSpaces">-</p>
     <p id="placeHolderConsole"></p>
 
     <div class="center-element">
-        <div id="grid-container">
+      <div id="grid-container"></div>
+      <p id="yes"></p>
     </div>
-        <p id="yes"></p>
-    </div>
-</body>
-<script src="script.js"></script>
+  </body>
+  <script src="script.js"></script>
 </html>
