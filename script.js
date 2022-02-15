@@ -61,6 +61,34 @@ let alphabet = [
   "y",
   "z",
 ];
+let testAlphabet = [
+  "b",
+  "a",
+  "c",
+  "d",
+  "e",
+  "f",
+  "g",
+  "h",
+  "i",
+  "j",
+  "k",
+  "l",
+  "m",
+  "n",
+  "o",
+  "p",
+  "q",
+  "r",
+  "s",
+  "t",
+  "u",
+  "v",
+  "w",
+  "x",
+  "y",
+  "z",
+];
 let correctAnswer = [];
 let checkingCorrectAnswer = [];
 let nextLetterV2;
@@ -78,6 +106,10 @@ let numberOfGuesses = 0;
 // step 1: go to a corner in a room (any room)
 // step 2: cry until you no longer want to code
 // step 3: happiness
+
+if ((alphabet = testAlphabet)) {
+  console.log("test is yes");
+}
 
 for (let i = 0; i < 26; i++) {
   const gridItem = document.createElement("p");
@@ -125,8 +157,6 @@ function nextLetterGuess() {
   nextLetter = document.getElementById("nextLetterInput").value;
   console.log(checkingCorrectAnswer + "checking correct answer");
   //if (placeOfGuessedWord >= 0) {
-  checkingCorrectAnswer.splice(0, 0, nextLetter);
-  console.log("checking correct answer" + checkingCorrectAnswer);
   //}
   showAlreadyInputedLetters();
 }
@@ -136,7 +166,6 @@ function showAlreadyInputedLetters() {
     const highlightedLetter = document.getElementById(nextLetter);
     highlightedLetter.classList.add("highlighted");
   }
-  checkingCorrectAnswer.splice();
   clearInputArea();
 }
 
@@ -154,6 +183,8 @@ function checkIfCorrectGuess() {
   console.log(placeOfGuessedWord);
   if (placeOfGuessedWord >= 0) {
     console.log("correct");
+    checkingCorrectAnswer.splice(0, 0, nextLetter);
+    console.log("checking correct answer" + checkingCorrectAnswer);
     console.log(placeOfGuessedWord);
     console.log(nextWordArray);
     console.log(blankSpacesArray);
