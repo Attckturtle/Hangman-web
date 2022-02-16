@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="style.css" />
+  <link id="theme" rel="stylesheet" type="text/css" href="darkmode.css" />
   <head>
     <title>Hangman Online</title>
   </head>
@@ -33,6 +33,7 @@
 
     <p id="blankSpaces">-</p>
     <p id="placeHolderConsole"></p>
+    <button id="toggleThemeButton"  onclick="toggleTheme('lightmode.css')">Toggle theme</button>
 
     <div class="center-element">
       <div id="grid-container"></div>

@@ -107,6 +107,15 @@ let numberOfGuesses = 0;
 // step 2: cry until you no longer want to code
 // step 3: happiness
 
+function toggleTheme() {
+  let theme = document.getElementsByTagName("link")[0];
+  if (theme.getAttribute("href") == "lightmode.css") {
+    theme.setAttribute("href", "darkmode.css");
+  } else {
+    theme.setAttribute("href", "lightmode.css");
+  }
+}
+
 if ((alphabet = testAlphabet)) {
   console.log("test is yes");
 }
