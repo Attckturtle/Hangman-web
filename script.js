@@ -169,14 +169,14 @@ function showAlreadyInputedLetters() {
   clearInputArea();
 }
 
-function getUnique(array){
-    var uniqueArray = [];
-    for(i=0; i < array.length; i++){
-        if(uniqueArray.indexOf(array[i]) === -1) {
-            uniqueArray.push(array[i]);
-        }
+function getUnique(array) {
+  var uniqueArray = [];
+  for (i = 0; i < array.length; i++) {
+    if (uniqueArray.indexOf(array[i]) === -1) {
+      uniqueArray.push(array[i]);
     }
-    return uniqueArray;
+  }
+  return uniqueArray;
 }
 
 function clearInputArea() {
@@ -250,19 +250,24 @@ function changeTheBlankSpaces() {
   document.getElementById("blankSpaces").innerHTML = blankSpacesArray;
 }
 
+function arrayEquals(a, b) {
+  return (
+    Array.isArray(a) &&
+    Array.isArray(b) &&
+    a.length === b.length &&
+    a.every((val, index) => val === b[index])
+  );
+}
+
 function checkIfCorrectWordGuess() {
+  //checkingCorrectAnswer.push(firstLetterOfArray);
   console.log(checkingCorrectAnswer);
   console.log(nextWordArray);
   //todo: fix issue with array equality measuring
-  if (
-    Array.isArray(checkingCorrectAnswer) &&
-    Array.isArray(nextWordArray) &&
-    checkingCorrectAnswer.length === nextWordArray.length &&
-    checkingCorrectAnswer.every((val, index) => val === nextWordArray[index])
-  ) {
+  if (arrayEquals(nextWordArray, blankSpacesArray)) {
     setTimeout(() => {
-      window.location.reload();
       alert("You Win");
+      window.location.reload();
     }, 2000);
   }
 }
