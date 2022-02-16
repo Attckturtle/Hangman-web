@@ -169,6 +169,16 @@ function showAlreadyInputedLetters() {
   clearInputArea();
 }
 
+function getUnique(array){
+    var uniqueArray = [];
+    for(i=0; i < array.length; i++){
+        if(uniqueArray.indexOf(array[i]) === -1) {
+            uniqueArray.push(array[i]);
+        }
+    }
+    return uniqueArray;
+}
+
 function clearInputArea() {
   console.log("clearing letter input");
   document.getElementById("nextLetterInput").value = "";
@@ -181,6 +191,7 @@ function checkIfCorrectGuess() {
   console.log(nextWordArray.indexOf(nextLetter));
   console.log("if statement log");
   console.log(placeOfGuessedWord);
+  checkingCorrectAnswer = getUnique(checkingCorrectAnswer);
   if (placeOfGuessedWord >= 0) {
     console.log("correct");
     checkingCorrectAnswer.splice(0, 0, nextLetter);
