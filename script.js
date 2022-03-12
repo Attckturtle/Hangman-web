@@ -1,8 +1,7 @@
 const gridContainer = document.getElementById("grid-container");
 let nextWord;
 let nextWordArray = [];
-let numberOfLettersV1;
-let numberOfLettersV2;
+let numberOfLetters;
 let nextLetter;
 let potentialLetters = [
   "a",
@@ -91,12 +90,8 @@ let testAlphabet = [
 ];
 let correctAnswer = [];
 let checkingCorrectAnswer = [];
-let nextLetterV2;
-let checkingCorrectAnswerV2 = [];
 let placeOfGuessedWord;
 let blankSpacesArray;
-let placeOfGuessedNumberV2;
-let placeOfGuessedNumberV3;
 let FirstBlankSpace;
 let firstLetterOfArray;
 let nextWordArrayLetter;
@@ -107,6 +102,7 @@ let numberOfGuesses = 0;
 // step 2: cry until you no longer want to code
 // step 3: happiness
 
+//toggles lightmode and darkmode css files
 function toggleTheme() {
   let theme = document.getElementsByTagName("link")[0];
   if (theme.getAttribute("href") == "lightmode.css") {
@@ -116,10 +112,7 @@ function toggleTheme() {
   }
 }
 
-if ((alphabet = testAlphabet)) {
-  console.log("test is yes");
-}
-
+//generates the alphabet table
 for (let i = 0; i < 26; i++) {
   const gridItem = document.createElement("p");
   gridItem.classList.add("grid-item");
@@ -129,22 +122,22 @@ for (let i = 0; i < 26; i++) {
 }
 
 function setNextWordToString() {
+  //saves input to nextWord
   nextWord = document.getElementById("nextWordInput").value;
   alert("New game started");
   nextWordArray = nextWord.split("");
-  console.log(nextWordArray);
+  //clears input box
   document.getElementById("nextWordInput").style.display = "none";
   document.getElementById("nextWordInputButton").style.display = "none";
   setTheBlankSpaces();
 }
 
 function setTheBlankSpaces() {
-  numberOfLettersV1 = nextWordArray.length;
-  console.log(numberOfLettersV1);
-  numberOfLettersV2 = parseInt(numberOfLettersV1);
-  console.log(numberOfLettersV2);
+  //prints blank spaces equal to the number of letters in the input
+  numberOfLetters = nextWordArray.length;
+  numberOfLetters = parseInt(numberOfLetters);
   let blankSpaces = "";
-  for (let i = 0; i < numberOfLettersV2; i++) {
+  for (let i = 0; i < numberOfLetters; i++) {
     if (nextWord[i] === " ") {
       blankSpaces += " space ";
     } else {
@@ -157,16 +150,11 @@ function setTheBlankSpaces() {
   nextWordArray.splice(0, 0, firstLetterOfArray);
   blankSpacesArray.splice(0, 1);
   blankSpacesArray.splice(0, 0, firstLetterOfArray);
-  console.log("log blank spaces");
-  console.log(blankSpacesArray);
   document.getElementById("blankSpaces").innerHTML = blankSpacesArray;
 }
 
 function nextLetterGuess() {
   nextLetter = document.getElementById("nextLetterInput").value;
-  console.log(checkingCorrectAnswer + "checking correct answer");
-  //if (placeOfGuessedWord >= 0) {
-  //}
   showAlreadyInputedLetters();
 }
 
@@ -179,7 +167,7 @@ function showAlreadyInputedLetters() {
 }
 
 function getUnique(array) {
-  var uniqueArray = [];
+  let uniqueArray = [];
   for (i = 0; i < array.length; i++) {
     if (uniqueArray.indexOf(array[i]) === -1) {
       uniqueArray.push(array[i]);
@@ -189,35 +177,26 @@ function getUnique(array) {
 }
 
 function clearInputArea() {
-  console.log("clearing letter input");
   document.getElementById("nextLetterInput").value = "";
   checkIfCorrectGuess();
 }
 
 function checkIfCorrectGuess() {
   placeOfGuessedWord = nextWordArray.indexOf(nextLetter);
-  placeOfGuessedNumberV2 = parseInt(placeOfGuessedWord);
-  console.log(nextWordArray.indexOf(nextLetter));
-  console.log("if statement log");
-  console.log(placeOfGuessedWord);
+  placeOfGuessedWord = parseInt(placeOfGuessedWord);
   checkingCorrectAnswer = getUnique(checkingCorrectAnswer);
   if (placeOfGuessedWord >= 0) {
-    console.log("correct");
     checkingCorrectAnswer.splice(0, 0, nextLetter);
-    console.log("checking correct answer" + checkingCorrectAnswer);
-    console.log(placeOfGuessedWord);
-    console.log(nextWordArray);
-    console.log(blankSpacesArray);
     changeTheBlankSpaces();
     checkIfCorrectWordGuess();
   } else {
     numberOfGuesses++;
-    console.log(numberOfGuesses);
     showHangmanBodyParts();
   }
 }
 
 function showHangmanBodyParts() {
+  //draws the hangman body parts
   switch (numberOfGuesses) {
     case 1:
       document.getElementById("hangmanHead").classList.remove("incorrectGuess");
@@ -250,12 +229,14 @@ function showHangmanBodyParts() {
         alert("Input next");
       }, 2000);
       break;
+    default:
+      alert("enter a letter");
+      break;
   }
 }
 
 function changeTheBlankSpaces() {
   blankSpacesArray.splice(placeOfGuessedWord, 1, nextLetter);
-  console.log(blankSpacesArray);
   document.getElementById("blankSpaces").innerHTML = blankSpacesArray;
 }
 
@@ -269,10 +250,6 @@ function arrayEquals(a, b) {
 }
 
 function checkIfCorrectWordGuess() {
-  //checkingCorrectAnswer.push(firstLetterOfArray);
-  console.log(checkingCorrectAnswer);
-  console.log(nextWordArray);
-  //todo: fix issue with array equality measuring
   if (arrayEquals(nextWordArray, blankSpacesArray)) {
     setTimeout(() => {
       alert("You Win");
